@@ -186,6 +186,7 @@ Precision@K mengukur seberapa banyak dari K rekomendasi teratas yang memiliki ko
 
 ### 2. Hasil Proyek berdasarkan metrik evaluasi.
 *Precision@K dihitung dengan rumus:*
+
 $$
 \text{Precision (P)} = \frac{\text{Jumlah rekomendasi yang relevan}}{\text{Jumlah total rekomendasi yang diberikan}}
 $$
