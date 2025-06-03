@@ -20,7 +20,7 @@ Referensi :
 [1] Zheng, Y., et al. (2018). "Drug Recommendation Systems". JMIR Medical Informatics, 6(1).
 [2] Yang, C.C., et al. (2020). "Mining Patient Reviews for Drug Recommendation". Journal of Biomedical Informatics, 102.
 
-## Business Understanding (Done)
+## Business Understanding
 
 Proyek ini dibangun untuk perusahaan dengan karakteristik bisnis sebagai berikut :
 
@@ -120,11 +120,12 @@ Dalam sistem rekomendasi obat, TF-IDF digunakan untuk menentukan representasi fi
 Setelah proses ini, hasil vektorisasi TF-IDF ditransformasikan ke dalam bentuk matriks menggunakan fungsi todense(). Matriks ini kemudian dimasukkan ke dalam dataframe baru yang menunjukkan skor TF-IDF untuk beberapa obat dan kata-kata kunci dalam ulasan pengguna.
 Semakin tinggi nilai skor pada matriks tersebut, semakin kuat hubungan antara obat dengan kata kunci tertentu. Misalnya, jika obat Ibuprofen memiliki skor TF-IDF tinggi untuk kata "nyeri", maka sistem dapat mengenali bahwa obat tersebut erat kaitannya dengan pengobatan nyeri, dan dapat digunakan untuk merekomendasikan obat-obat lain dengan asosiasi kata kunci serupa.
 Secara matematis, TF dari sebuah term dalam dokumen dihitung dengan membagi jumlah kemunculan kata tersebut dengan total jumlah kata dalam dokumen. Sementara IDF dihitung dengan menggunakan logaritma dari total jumlah dokumen dibagi jumlah dokumen yang mengandung kata tersebut, kemudian ditambahkan 1 untuk menghindari pembagian dengan nol. Dengan rumus lengkap sebagai berikut:
+
 $$
 TFIDF(t, d) = \frac{f_{t,d}}{N_d} \times \log\left( \frac{1 + N}{1 + df_t} \right) + 1
 $$
 
-![Dimensi TF-IDF](https://i.postimg.cc/qqVV6Ttp/dimensi-TF-IDF.png)
+![Dimensi TF-IDF](https://raw.githubusercontent.com/Yhyabnu/image/refs/heads/main/dimensi%20TF-IDF.png)
 
 ### TruncatedSVD
 TruncatedSVD adalah teknik reduksi dimensi yang digunakan untuk mengurangi kompleksitas data tinggi (high-dimensional) menjadi bentuk yang lebih ringkas namun tetap mempertahankan informasi penting. Berbeda dengan PCA (Principal Component Analysis), TruncatedSVD bisa digunakan langsung pada data sparse seperti hasil dari TF-IDF tanpa perlu merata-ratakan data.
@@ -132,7 +133,7 @@ TruncatedSVD adalah teknik reduksi dimensi yang digunakan untuk mengurangi kompl
 Dalam sistem rekomendasi, khususnya yang berbasis matriks fitur seperti hasil dari TF-IDF Vectorizer, jumlah dimensi data bisa menjadi sangat besar. Setiap kata yang muncul dalam ulasan pengguna akan menjadi satu dimensi tersendiri, dan ini menghasilkan matriks yang sangat besar dan jarang (sparse). Di sinilah peran Truncated Singular Value Decomposition (TruncatedSVD) menjadi penting.
 Transformasi dari dimensi (14919, 20949) menjadi (14919, 100) menggunakan TruncatedSVD menunjukkan keberhasilan sistem dalam menyaring informasi penting dan mengurangi beban komputasi tanpa mengorbankan akurasi rekomendasi. Langkah ini merupakan praktik standar dalam pemrosesan teks berskala besar dan menjadi fondasi penting dalam pembuatan sistem rekomendasi modern.
 
-![Dimensi TF-IDF](https://i.postimg.cc/1tN1zt3W/Truncated-SVD.png)
+![Dimensi TF-IDF setelah Reduksi](https://raw.githubusercontent.com/Yhyabnu/image/refs/heads/main/TruncatedSVD.png)
 
 
 ## Content Based Filtering Model & Result
@@ -140,13 +141,14 @@ Transformasi dari dimensi (14919, 20949) menjadi (14919, 100) menggunakan Trunca
 Sistem yang dibangun oleh proyek ini adalah sistem rekomendasi sederhana untuk obat berdasarkan content-based filtering.
 Sistem rekomendasi berbasis konten adalah sistem yang menyarankan obat-obatan yang memiliki karakteristik serupa dengan obat yang disukai atau pernah digunakan sebelumnya oleh pengguna. Jika suatu obat memiliki deskripsi, kategori, atau ulasan pengguna yang mirip dengan obat lainnya, maka kedua obat tersebut dianggap memiliki kemiripan.
 Sebagai contoh, dalam sistem rekomendasi obat, apabila seorang pengguna menyukai atau memberikan ulasan positif terhadap obat Ibuprofen untuk nyeri sendi, maka sistem dapat merekomendasikan obat antiinflamasi nonsteroid (NSAID) lain dengan fungsi serupa, seperti Naproxen atau Ketoprofen.
-![Ilustrasi Content Based Filltering](https://i.postimg.cc/pX5RdspW/ilustrasi.png)
+
+![Ilustrasi Content Based Filltering](https://raw.githubusercontent.com/Yhyabnu/image/refs/heads/main/ilustrasi.png)
 
 
 #### Cosine Similarity
 Cosine Similarity mengukur kesamaan antara dua vektor dan menentukan apakah kedua vektor menunjuk ke arah yang sama. Teknik ini bekerja dengan menghitung sudut cosinus antara dua vektor. Semakin kecil sudut cosinus antara dua vektor, semakin besar nilai kemiripan cosinusnya.
 
-![Cosine Similarity](https://i.postimg.cc/JnTMsgNn/cosine.png)
+![Cosine Similarity](https://raw.githubusercontent.com/Yhyabnu/image/refs/heads/main/cosine.png)
 
 Cosine similarity digunakan untuk menghitung derajat kesamaan antar obat berdasarkan representasi vektor dari ulasan pengguna. Untuk menghitung cosine similarity, digunakan fungsi cosine_similarity dari library scikit-learn.
 Tahapan ini menghitung kesamaan antar obat menggunakan dataframe tfidf_matrix yang telah dihasilkan pada proses TF-IDF sebelumnya. TF-IDF merepresentasikan pentingnya kata-kata dalam ulasan, dan cosine similarity mengukur seberapa mirip dua obat berdasarkan kemiripan kata-kata yang muncul dalam ulasan pengguna.
@@ -192,6 +194,10 @@ $$
 $$
 
 Artinya, precision mengukur seberapa banyak dari obat-obat yang direkomendasikan oleh sistem benar-benar relevan atau bermanfaat bagi pengguna. Nilai precision yang tinggi menunjukkan bahwa sebagian besar rekomendasi sistem memang sesuai dan berguna, sedangkan precision yang rendah mengindikasikan bahwa sistem memberikan banyak rekomendasi yang tidak relevan.
+
+$$
+\text{Precision (P)} = \frac{\text{5}}{\text{5}} = 1.0
+$$
 
 Dengan berdasarkan sampel obat yang  diberikan yaitu Anafranil Sistem berhasil memberikan 5 rekomendasi obat yang relevan dari jumlah total rekomendasi yang diberikan dengan berdasarkan kondisi medis dan kualitas (rating) ulasan pengguna.
 Nilai Precision@5 = 1.0 menunjukkan bahwa seluruh rekomendasi untuk 'Anafranil' sesuai konteks dan layak disarankan sebagai alternatif bagi pengguna dengan kondisi Obsessive Compulsive Disorder.
