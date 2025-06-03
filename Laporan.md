@@ -67,7 +67,7 @@ Dataset obat
 
 #### Analisis distribusi data rata-rata rating obat
 
-![rating.png](https://i.postimg.cc/9QG2dzds/rating.png)
+![rating.png](https://raw.githubusercontent.com/Yhyabnu/image/refs/heads/main/rating.png)
 
 Sebagian besar rata-rata rating obat berada pada nilai 10 hal ini menunjukan kepuasan pelanggan atau konsumen.
 
@@ -77,19 +77,19 @@ Multivariate Analysis menunjukkan hubungan antara dua atau lebih fitur dalam dat
 
 #### Top 10 obat berdasarkan pada kondisi
 
-![Top 10 Obat berdasarkan kondisi](https://i.postimg.cc/zGm5HTgn/kondisi.png)
+![Top 10 Obat berdasarkan kondisi](https://raw.githubusercontent.com/Yhyabnu/image/refs/heads/main/kondisi.png)
 
 Grafik ini menunjukkan obat-obatan yang paling banyak digunakan oleh pasien untuk berbagai kondisi medis. Levonorgestrel adalah obat yang paling sering digunakan, dengan 378 penggunaan.Diikuti oleh Etonogestrel (286) dan Ethinyl estradiol/norethindrone (240).Obat-obatan hormonal dan kontrasepsi mendominasi daftar ini, menunjukkan prevalensi penggunaannya untuk kondisi terkait reproduksi atau hormonal.
 
 #### Top 10 obat berdasarkan rata-rata rating 
 
-![Top 10 Obat berdasarkan Rating](https://i.postimg.cc/9fChJV10/rating-obat.png)
+![Top 10 Obat berdasarkan Rating](https://raw.githubusercontent.com/Yhyabnu/image/refs/heads/main/rating%20obat.png)
 
 Meskipun rating 10.0 bisa mengindikasikan keefektifan tinggi, penting untuk mengevaluasi jumlah pengguna dan konteks penggunaan agar tidak bias oleh jumlah ulasan yang terlalu sedikit.
 
 #### Top 10 obat berdasarkan usefulCount atau manfaat 
 
-![Top 10 Obat berdasarkan Penggunaan(UsefulCount)](https://i.postimg.cc/fLbhQKGh/useful-Count.png)
+![Top 10 Obat berdasarkan Penggunaan(UsefulCount)](https://raw.githubusercontent.com/Yhyabnu/image/refs/heads/main/usefulCount.png)
 
 Grafik yang ditampilkan menggambarkan obat-obatan yang memiliki ulasan paling berguna menurut penilaian pengguna lain. Dari data yang terlihat, Sertraline menempati posisi teratas dengan total 949 pengguna yang menganggap ulasan mengenai obat ini bermanfaat.posisi kedua ditempati oleh Oxycodone, dengan 695 suara yang menyatakan bahwa ulasan tentang obat ini berguna. Di urutan ketiga terdapat Clonazepam dengan 559 suara. Kedua obat ini, bersama Sertraline, termasuk dalam kategori obat psikotropika atau penghilang nyeri, yang umumnya digunakan untuk menangani gangguan mental, kecemasan, atau nyeri kronis. beberapa obat lain seperti Prozac dan Adipex-P juga masuk dalam daftar sepuluh besar, memperkuat temuan bahwa obat-obatan yang berkaitan dengan kesehatan mental dan pengendalian rasa sakit cenderung menghasilkan ulasan yang dianggap sangat informatif oleh pengguna lain.
 
@@ -186,6 +186,7 @@ Precision@K mengukur seberapa banyak dari K rekomendasi teratas yang memiliki ko
 
 ### 2. Hasil Proyek berdasarkan metrik evaluasi.
 *Precision@K dihitung dengan rumus:*
+
 $$
 \text{Precision (P)} = \frac{\text{Jumlah rekomendasi yang relevan}}{\text{Jumlah total rekomendasi yang diberikan}}
 $$
