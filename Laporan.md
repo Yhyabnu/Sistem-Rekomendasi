@@ -4,7 +4,7 @@
 
 Ini adalah proyek akhir sistem rekomendasi untuk memenuhi submission dicoding. Proyek ini membangun model berbasis content based filtering yang dapat menentukan top-N rekomendasi obat bagi pegguna.
 
-## Domain Proyek
+## Project Overview
 
 ### Latar Belakang
 
