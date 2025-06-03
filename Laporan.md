@@ -1,6 +1,6 @@
 # Proyek Akhir Sistem Rekomendasi Obat
 
-#### Disusun oleh : Yahya Ibnu Fajar
+### Disusun oleh : Yahya Ibnu Fajar
 
 Ini adalah proyek akhir sistem rekomendasi untuk memenuhi submission dicoding. Proyek ini membangun model berbasis content based filtering yang dapat menentukan top-N rekomendasi obat bagi pegguna.
 
@@ -136,7 +136,7 @@ Transformasi dari dimensi (14919, 20949) menjadi (14919, 100) menggunakan Trunca
 ![Dimensi TF-IDF setelah Reduksi](https://raw.githubusercontent.com/Yhyabnu/image/refs/heads/main/TruncatedSVD.png)
 
 
-## Content Based Filtering Model & Result
+## Modeling (Content Based Filtering) & Result
 
 Sistem yang dibangun oleh proyek ini adalah sistem rekomendasi sederhana untuk obat berdasarkan content-based filtering.
 Sistem rekomendasi berbasis konten adalah sistem yang menyarankan obat-obatan yang memiliki karakteristik serupa dengan obat yang disukai atau pernah digunakan sebelumnya oleh pengguna. Jika suatu obat memiliki deskripsi, kategori, atau ulasan pengguna yang mirip dengan obat lainnya, maka kedua obat tersebut dianggap memiliki kemiripan.
